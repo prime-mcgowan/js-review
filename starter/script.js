@@ -165,6 +165,12 @@ const updatedBook = {
 updatedBook;
 
 const summary = `${title} is a ${pages} page book, was written by ${author} and published ${
-  publicationDate("-")[0]
+  publicationDate.split("-")[0]
 }.`;
 summary;
+
+//21. Ternary Operator
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`The ${title} has ${pagesRange} pages.`);
