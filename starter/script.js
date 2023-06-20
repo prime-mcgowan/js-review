@@ -174,3 +174,18 @@ summary;
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
 console.log(`The ${title} has ${pagesRange} pages.`);
+
+//22. Arrow Functions
+
+const getYear = (str) => str.split("-")[0];
+
+//23. Short Circuiting & Logical Operators
+
+console.log(true && "Some string");
+
+//falsy = null, 0, '', undefined
+// will look at the first value to judge true/false AND will also look at the second value
+
+// && = and
+// || = or
+// ?? = nullish / coallesing (returns the second value when the first is null or undefined)
