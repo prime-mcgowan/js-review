@@ -165,6 +165,6 @@ const updatedBook = {
 updatedBook;
 
 const summary = `${title} is a ${pages} page book, was written by ${author} and published ${
-  publicationDate.split("-")[0]
+  publicationDate("-")[0]
 }.`;
 summary;
