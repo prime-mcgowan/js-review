@@ -1,3 +1,5 @@
+const { json } = require("body-parser");
+
 const data = [
   {
     id: 1,
@@ -204,6 +206,7 @@ function getTotalReviewCount(book) {
 console.log(getTotalReviewCount(book));
 */
 
+/*
 //25. The Map Method
 //creates and array with exact same length as the original
 
@@ -277,3 +280,20 @@ const booksAfterUpdate = booksAfterDelete.map(
 );
 
 booksAfterUpdate;
+*/
+
+//30. Asynchronous JS Promises - fetch and load data from an external API
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+//31. Asynch/Await
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+getTodos();
