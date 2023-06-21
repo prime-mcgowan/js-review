@@ -205,6 +205,7 @@ console.log(getTotalReviewCount(book));
 */
 
 //25. The Map Method
+//creates and array with exact same length as the original
 
 const books = getBooks(); //gives us the entire array of books
 books;
@@ -221,6 +222,7 @@ const essentialData = books.map((book) => ({
 essentialData;
 
 //26. Filter Method
+// makes the resulting array shorter
 
 //each book is looked at if it's TRUE that it has more than 500 pages then it will be added to the new array
 const longBooks = books
@@ -249,3 +251,29 @@ pagesAllBooks;
 const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
 
 sortedByPages;
+
+//29. Immutable Arrays
+// add, delete and update elements of an array w/o changing the original array (array of objects)
+
+//Add a book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J.K. Rowling",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+//Delete a book object from the array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3); //include books whose does NOT = 3
+booksAfterDelete;
+
+//Update book object in array
+const booksAfterUpdate = booksAfterDelete.map(
+  (book) => (book.id === 1 ? { ...book, pages: 1210 } : book)
+  //spread operator = ... which spreads out the whole book object into the newly created object and I can
+  //then override whatever one I want to
+);
+
+booksAfterUpdate;
