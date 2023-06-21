@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(1);
+const book = getBook(3);
 book;
 
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
@@ -189,3 +189,15 @@ console.log(true && "Some string");
 // && = and
 // || = or
 // ?? = nullish / coallesing (returns the second value when the first is null or undefined)
+
+//24. Optional Chaining Operator
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  //the singular question mark after book.reviews.librarything checks to see if the even exists
+  //if there are no review counts form librarything then it will be zero instead of undefined using the ??
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
