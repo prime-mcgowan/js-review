@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 // Destructuring
 const book = getBook(3);
 book;
@@ -201,3 +202,50 @@ function getTotalReviewCount(book) {
 }
 
 console.log(getTotalReviewCount(book));
+*/
+
+//25. The Map Method
+
+const books = getBooks(); //gives us the entire array of books
+books;
+
+//For each book element...the title is being returned and stores in titles
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
+
+essentialData;
+
+//26. Filter Method
+
+//each book is looked at if it's TRUE that it has more than 500 pages then it will be added to the new array
+const longBooks = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+longBooks;
+
+//filter and map combined
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
+
+//27. Reduce Method
+// boil down entire array to one value
+
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+// acc or sum = accumulator...starts at 0
+// after the first iteration that 0 on the end changes to the # of pages of the first book
+pagesAllBooks;
+
+//28. Sort Method
+// mutates / changes the original array
+// .slice makes a copy of the array and just sorts that
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+
+sortedByPages;
